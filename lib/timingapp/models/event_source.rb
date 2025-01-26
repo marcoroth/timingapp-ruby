@@ -8,7 +8,6 @@ module Timingapp
     belongs_to :integration, foreign_key: :integration_id
     belongs_to :integration_project, foreign_key: :integration_project_id
     belongs_to :template, foreign_key: :template_id
-    belongs_to :origin, foreign_key: :origin_id
 
     scope :templates, -> { where(is_template: true) }
     scope :favorites, -> { where(is_favorite: true) }
