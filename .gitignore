@@ -6,4 +6,7 @@
 /pkg/
 /spec/reports/
 /tmp/
+
 *.db
+*.db-shm
+*.db-wal
