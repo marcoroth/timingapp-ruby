@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Marco Roth"]
   spec.email = ["marco.roth@intergga.ch"]
 
-  spec.summary = "Ruby client for TimingApp.com"
+  spec.summary = "Ruby client for the database of the Timingapp.com macOS application."
   spec.description = spec.summary
   spec.homepage = "https://github.com/marcoroth/timingapp-ruby"
   spec.required_ruby_version = ">= 3.1.0"
