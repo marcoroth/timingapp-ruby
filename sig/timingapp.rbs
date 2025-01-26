@@ -1,0 +1,3 @@
+module Timingapp
+  VERSION: String
+end
