@@ -27,20 +27,20 @@ require "timingapp"
 Next, initiate database access using:
 
 ```ruby
-irb(main):001> Timingapp.load!
+Timingapp.load!
 ```
 
 > [!NOTE]
 > The `Timingapp.load!` method accepts an optional `path` parameter specifying the location of the SQLite database file.
 > It defaults to `"~/Library/Application Support/info.eurocomp.Timing2/SQLite.db"`.
 ```ruby
-irb(main):001> Timingapp.load!("path/to/other/timingapp/database.db")
+Timingapp.load!("path/to/other/timingapp/database.db")
 ```
 
 After successfully loading the database, you get access to all the models exposed by the gem. Currently, these models are read-only and are all instances of `ActiveRecord::Base`. 
 
 ```ruby
-irb(main):002> Timingapp::AppActivity.all
+irb(main):001> Timingapp::AppActivity.all
 # =>
 [
   #<Timingapp::AppActivity:0x000000012131c960 id: 3626854634616737793, localDeviceID: 3, startDate: 1688885798.0, ...>,
@@ -52,10 +52,10 @@ irb(main):002> Timingapp::AppActivity.all
 Consequently, you can leverage the ActiveRecord DSL for querying and traversing the models.
 
 ```ruby
-irb(main):003> activity = Timingapp::AppActivity.find(3686251181653903872)
+irb(main):002> activity = Timingapp::AppActivity.find(3686251181653903872)
 => #<Timingapp::AppActivity:0x000000037c09fa18 ...>
 
-irb(main):004> activity.project
+irb(main):003> activity.project
 => #<Timingapp::Project:0x000000038831d220
       id: 3627848804833985024,
       title: "StimulusReflex",
@@ -67,10 +67,10 @@ irb(main):004> activity.project
       ...
     >
 
-irb(main):005> activity.project.title
+irb(main):004> activity.project.title
 => "StimulusReflex"
 
-irb(main):006> activity.project.parent.title
+irb(main):005> activity.project.parent.title
 => "Open Source"
 ```
 
