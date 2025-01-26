@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    timingapp (0.1.0)
+    timingapp (0.2.0)
       activerecord
       sqlite3
       zeitwerk
