@@ -18,7 +18,35 @@ gem install timingapp
 
 ## Usage
 
-TODO: Write usage instructions here
+First, required the gem in your project:
+
+```ruby
+require "timingapp"
+```
+
+Then, open the database using:
+
+```ruby
+Timingapp.load!
+```
+
+Which optionally also takes in an argument (`path`) which is the path to the sqlite database file. It defaults to `"~/Library/Application Support/info.eurocomp.Timing2/SQLite.db"`.
+
+```ruby
+Timingapp.load!("path/to/other/timingapp/database.db")
+```
+
+And finally, you are able to access all the models this gem exposes. The exposed modules are readonly for now and are all instances of `ActiveRecord::Base`. So you can use the ActiveRecord DSL.
+
+```ruby
+Timingapp::AppActivity.all
+# =>
+[
+  #<Timingapp::AppActivity:0x000000012131c960 id: 3626854634616737793, localDeviceID: 3, startDate: 1688885798.0, ...>,
+  #<Timingapp::AppActivity:0x000000012131c820 id: 3626854892682944513, localDeviceID: 3, startDate: 1688885918.0, ...>,
+  #...
+]
+```
 
 ## Development
 

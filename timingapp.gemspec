@@ -28,6 +28,10 @@ Gem::Specification.new do |spec|
     end
   end
 
+  spec.add_dependency "activerecord"
+  spec.add_dependency "sqlite3"
+  spec.add_dependency "zeitwerk"
+
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]

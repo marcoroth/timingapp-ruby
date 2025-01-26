@@ -11,3 +11,11 @@ Style/StringLiteralsInInterpolation:
 
 Style/Documentation:
   Enabled: false
+
+Naming/MethodName:
+  Exclude:
+    - lib/timingapp/models/**
+
+Metrics/BlockLength:
+  Exclude:
+    - schema.rb
