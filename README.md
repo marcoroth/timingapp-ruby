@@ -1,6 +1,6 @@
 # Timingapp
 
-Ruby client for the database of the [TimingApp](https://timingapp.com) application. It allows you to read the TimingApp SQLite database from your local disk and gives you an interface to query it's data.
+Ruby client for the database of the [Timing](https://timingapp.com) macOS application. It allows you to read the TimingApp SQLite database from your local disk and gives you an interface to query it's data.
 
 ## Installation
 
