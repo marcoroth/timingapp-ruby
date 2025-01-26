@@ -1,6 +1,6 @@
 # Timingapp
 
-Ruby client for the database of the [Timing](https://timingapp.com) macOS application. It allows you to read the TimingApp SQLite database from your local disk and gives you an interface to query it's data.
+Ruby client for the database of the [Timing](https://timingapp.com) macOS application. It allows you to read the Timing SQLite database from your local disk and gives you an interface to query it's data.
 
 ## Installation
 
@@ -18,34 +18,60 @@ gem install timingapp
 
 ## Usage
 
-First, required the gem in your project:
+To utilize the `timingapp` gem, `require` it in your project:
 
 ```ruby
 require "timingapp"
 ```
 
-Then, open the database using:
+Next, initiate database access using:
 
 ```ruby
-Timingapp.load!
+irb(main):001> Timingapp.load!
 ```
 
-Which optionally also takes in an argument (`path`) which is the path to the sqlite database file. It defaults to `"~/Library/Application Support/info.eurocomp.Timing2/SQLite.db"`.
-
+> [!NOTE]
+> The `Timingapp.load!` method accepts an optional `path` parameter specifying the location of the SQLite database file.
+> It defaults to `"~/Library/Application Support/info.eurocomp.Timing2/SQLite.db"`.
 ```ruby
-Timingapp.load!("path/to/other/timingapp/database.db")
+irb(main):001> Timingapp.load!("path/to/other/timingapp/database.db")
 ```
 
-And finally, you are able to access all the models this gem exposes. The exposed modules are readonly for now and are all instances of `ActiveRecord::Base`. So you can use the ActiveRecord DSL.
+After successfully loading the database, you get access to all the models exposed by the gem. Currently, these models are read-only and are all instances of `ActiveRecord::Base`. 
 
 ```ruby
-Timingapp::AppActivity.all
+irb(main):002> Timingapp::AppActivity.all
 # =>
 [
   #<Timingapp::AppActivity:0x000000012131c960 id: 3626854634616737793, localDeviceID: 3, startDate: 1688885798.0, ...>,
   #<Timingapp::AppActivity:0x000000012131c820 id: 3626854892682944513, localDeviceID: 3, startDate: 1688885918.0, ...>,
   #...
 ]
+```
+
+Consequently, you can leverage the ActiveRecord DSL for querying and traversing the models.
+
+```ruby
+irb(main):003> activity = Timingapp::AppActivity.find(3686251181653903872)
+=> #<Timingapp::AppActivity:0x000000037c09fa18 ...>
+
+irb(main):004> activity.project
+=> #<Timingapp::Project:0x000000038831d220
+      id: 3627848804833985024,
+      title: "StimulusReflex",
+      parentID: 3627712234116683008,
+      listPosition: 9,
+      isSample: false,
+      color: "#2D7FFFFF",
+      productivityScore: 1.0,
+      ...
+    >
+
+irb(main):005> activity.project.title
+=> "StimulusReflex"
+
+irb(main):006> activity.project.parent.title
+=> "Open Source"
 ```
 
 ## Development
