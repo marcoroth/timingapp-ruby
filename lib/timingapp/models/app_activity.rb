@@ -5,18 +5,15 @@ module Timingapp
     self.table_name = "AppActivity"
     self.primary_key = "id"
 
-    belongs_to :application, foreign_key: "applicationID"
-    belongs_to :localDevice, foreign_key: "localDeviceID", primary_key: "localID", class_name: "Timingapp::Device"
-    belongs_to :project, foreign_key: "projectID"
-    belongs_to :title, foreign_key: "titleID"
-    belongs_to :path, foreign_key: "pathID"
+    belongs_to :device, foreign_key: :localDeviceID
+    belongs_to :application, foreign_key: :applicationID
+    belongs_to :title, foreign_key: :titleID
+    belongs_to :path, foreign_key: :pathID
+    belongs_to :project, foreign_key: :projectID
 
-    def startDate
-      Time.at(super)
-    end
+    scope :deleted, -> { where(isDeleted: true) }
 
-    def endDate
-      Time.at(super)
-    end
+    time_column :startDate
+    time_column :endDate
   end
 end

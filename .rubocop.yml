@@ -12,6 +12,10 @@ Style/StringLiteralsInInterpolation:
 Style/Documentation:
   Enabled: false
 
+Naming/PredicateName:
+  Exclude:
+    - lib/timingapp/timing_record.rb
+
 Naming/MethodName:
   Exclude:
     - lib/timingapp/models/**
