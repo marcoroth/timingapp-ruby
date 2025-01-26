@@ -38,7 +38,6 @@ GEM
     date (3.4.1)
     difftastic (0.2.0)
     difftastic (0.2.0-arm64-darwin)
-    difftastic (0.2.0-arm64-linux)
     difftastic (0.2.0-x86_64-darwin)
     difftastic (0.2.0-x86_64-linux)
     drb (2.2.1)
@@ -52,7 +51,6 @@ GEM
     json (2.9.1)
     language_server-protocol (3.17.0.3)
     logger (1.6.5)
-    mini_portile2 (2.8.8)
     minitest (5.25.4)
     minitest-difftastic (0.1.2)
       difftastic (~> 0.2)
@@ -88,8 +86,6 @@ GEM
       parser (>= 3.3.1.0)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
-    sqlite3 (2.5.0)
-      mini_portile2 (~> 2.8.0)
     sqlite3 (2.5.0-aarch64-linux-gnu)
     sqlite3 (2.5.0-aarch64-linux-musl)
     sqlite3 (2.5.0-arm-linux-gnu)
@@ -116,8 +112,6 @@ PLATFORMS
   arm-linux-gnu
   arm-linux-musl
   arm64-darwin
-  arm64-linux
-  ruby
   x86-linux-gnu
   x86-linux-musl
   x86_64-darwin
